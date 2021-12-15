@@ -9,7 +9,7 @@
       FileUploaderButton,
       TextInput,
       InlineNotification,
-      Link,
+      CodeSnippet 
     } from "carbon-components-svelte";
     import { saveFile, saveImgFile } from "../utils/ipfs"
 
@@ -21,6 +21,14 @@
     let fileSuccess = {status:false, url:""}
     // file uploader object name
     let imgName;
+
+    let metadata = `{
+        name:${tokenObj.name},
+        description:${tokenObj.description},
+        image:${tokenObj.image},
+        external_url:${tokenObj.external_url},
+        attributes:${tokenObj.attributes},
+        }`
 
     // Upload image to ipfs, returns the url
     const uploadImageIpfs = async (_object) => {
@@ -101,7 +109,8 @@
             <TextInput inline labelText="Name" placeholder="Enter nft name..." bind:value={tokenObj.name}/>
             <TextInput inline labelText="Description" placeholder="Enter nft description..." bind:value={tokenObj.description}/>
         </FormGroup>
-        
+        <h3>Metadata:</h3>    
+        <CodeSnippet type="multi" code={JSON.stringify(tokenObj)} hideCopyButton />
         {#if uploadStatus.object === "waiting"}
             <Button type="submit">Submit</Button>
         {:else if uploadStatus.object === "uploading"}

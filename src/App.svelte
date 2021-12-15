@@ -4,6 +4,7 @@
 
 	// my components
 	import IpfsForm from './components/IpfsForm.svelte';
+	import Gallery from "./components/Gallery.svelte";
 </script>
 
 <main>
@@ -13,13 +14,13 @@
 	<br>
 
 	<IpfsForm />
+	<br>
+	<Gallery />
 </main>
 
 <style>
 
 	main {
-		contain: layout inline-size;
-  width: 100%;
 		text-align: center;
 		padding: 1em;
 		max-width: 240px;
