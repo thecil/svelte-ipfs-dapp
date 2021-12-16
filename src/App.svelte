@@ -5,6 +5,7 @@
 	// my components
 	import IpfsForm from './components/IpfsForm.svelte';
 	import Gallery from "./components/Gallery.svelte";
+	import LoginWeb3 from "./components/LoginWeb3.svelte"
 </script>
 
 <main>
@@ -12,7 +13,8 @@
 	<h1>IPFS Uploader!</h1>
 	<p>Visit the <a href="https://docs.moralis.io/moralis-server/files/ipfs">Moralis IPFS tutorial</a></p>
 	<br>
-
+	<LoginWeb3 />
+	<br>
 	<IpfsForm />
 	<br>
 	<Gallery />
