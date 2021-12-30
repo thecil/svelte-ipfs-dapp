@@ -32,8 +32,8 @@
         
 
         // after sucess, save file reference to moralis database
-        const refDb = await saveRefFile(result, 'IPFS_images');
-        console.log("refDb:saveImgFile", refDb);
+        // const refDb = await saveRefFile(result, 'IPFS_images');
+        // console.log("refDb:saveImgFile", refDb);
         return result;
      } catch (error) {
         console.error("saveImgFile:ERROR", error);

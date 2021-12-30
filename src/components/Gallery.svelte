@@ -10,6 +10,7 @@
             const results = await query.find(); // [ Gallery, Gallery, ...]
             
             results.forEach(element => {
+                console.log("element.attributes.resume", element.attributes.resume)
                 gallery.items.push(JSON.parse(JSON.stringify(element.attributes.resume)));
                 
             });

@@ -16,8 +16,16 @@
         }
     }
     isUser();
+
+    // web3 logout, clear all user data (storages)
+    const web3Logout = async () => {
+        console.log('web3Logout');
+        await Moralis.User.logOut();
+        user = {status:"disconnected", data:{}};
+        isUser();
+    }
     // web3 login, fetch user data
-    export const web3Login = async () => {
+    const web3Login = async () => {
         try{
             const _user = await Moralis.Web3.authenticate({signingMessage:" IPFS FORM, must sign to login "});
 
@@ -36,6 +44,7 @@
 
 {#if user.status === "connected"}
     <h2>Welcome {user.data.username}</h2>
+    <Button on:click={web3Logout}>Logout</Button>
 {:else}
     <Button on:click={web3Login}>Login MetaMask</Button>
 {/if}
